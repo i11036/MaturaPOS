@@ -59,7 +59,7 @@ namespace AutomatGUI
                 index++;
             }
 
-            if (state != null && state.IsEndState)
+            if (state != null && state.IsFinalState)
             {
                 return true;
             }
@@ -185,7 +185,7 @@ namespace AutomatGUI
                     else if (equiv.IsFirst(state.Name))
                     {
                         string equivName = equivs.GetEquivName(state.Name);
-                        newState = new State(equivName, state.IsEndState);
+                        newState = new State(equivName, state.IsFinalState);
 
                         newStates[newState.Name] = newState;
                     }
@@ -283,7 +283,7 @@ namespace AutomatGUI
             output += "States:\n";
             foreach (var state in states.Values)
             {
-                output += ("[" + state.Name + "]\nIsEndState: " + state.IsEndState + "\n");
+                output += ("[" + state.Name + "]\nIsEndState: " + state.IsFinalState + "\n");
                 output += ("IsGui: " + (state is GuiState).ToString() + "\n");
             }
 

@@ -15,7 +15,8 @@ namespace AutomatGUI
 
         private const int defaultX = 10;
         private const int defaultY = 10;
-        private const int defaultSize = 20;
+        private const int defaultSize = 25;
+        private const double innerSizeRatio = 0.8;
         private const int defaultArrowSize = 5;
 
         private int x_;
@@ -81,8 +82,17 @@ namespace AutomatGUI
         {
             int xPos = x_ - size_ / 2;
             int yPos = y_ - size_ / 2;
+            int xPosInner = x_ - (int)(size_ * innerSizeRatio / 2);
+            int yPosInner = y_ - (int)(size_ * innerSizeRatio / 2);
 
             g.DrawEllipse(pen_, xPos, yPos, size_, size_);
+            if (IsFinalState)
+            {
+                g.DrawEllipse(pen_, xPosInner, yPosInner, 
+                    (int)(size_ * innerSizeRatio),
+                    (int)(size_ * innerSizeRatio));
+            }
+
             PaintName(g);
 
             foreach (KeyValuePair<char, State> path in paths)
@@ -150,8 +160,10 @@ namespace AutomatGUI
 
                 // Draw arrow
                 g.DrawLine(pen_, shaftPos.X, shaftPos.Y, tipPos.X, tipPos.Y);
-                g.DrawLine(pen_, tipPos.X, tipPos.Y, arrowPart1.X, arrowPart1.Y);
-                g.DrawLine(pen_, tipPos.X, tipPos.Y, arrowPart2.X, arrowPart2.Y);
+                g.DrawLine(pen_, tipPos.X, tipPos.Y,
+                    arrowPart1.X, arrowPart1.Y);
+                g.DrawLine(pen_, tipPos.X, tipPos.Y,
+                    arrowPart2.X, arrowPart2.Y);
             }
             else
             {
@@ -179,8 +191,10 @@ namespace AutomatGUI
 
                 // Draw Arrow
                 g.DrawArc(pen_, x_, y_, size_, size_, -90, 270);
-                g.DrawLine(pen_, tipPos.X, tipPos.Y, arrowPart1.X, arrowPart1.Y);
-                g.DrawLine(pen_, tipPos.X, tipPos.Y, arrowPart2.X, arrowPart2.Y);
+                g.DrawLine(pen_, tipPos.X, tipPos.Y,
+                    arrowPart1.X, arrowPart1.Y);
+                g.DrawLine(pen_, tipPos.X, tipPos.Y,
+                    arrowPart2.X, arrowPart2.Y);
             }
         }
     }

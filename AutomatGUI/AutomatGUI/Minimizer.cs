@@ -75,8 +75,8 @@ namespace AutomatGUI
             Console.WriteLine("Evaluating...\t\t{0} - {1}",
                                 state1, state2);
 
-            if (autStates[state1].IsEndState
-                != autStates[state2].IsEndState)
+            if (autStates[state1].IsFinalState
+                != autStates[state2].IsFinalState)
             {
                 if (Get(state1, state2))
                 {

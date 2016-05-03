@@ -11,7 +11,7 @@ namespace AutomatGUI
         protected string name_;
 
         public string Name { get { return name_; } }
-        public bool IsEndState { get; set; }
+        public bool IsFinalState { get; set; }
         protected Dictionary<char, State> paths;
 
         public State(string name) : this(name, false) { }
@@ -19,14 +19,14 @@ namespace AutomatGUI
         public State(string name, bool isEndState)
         {
             name_ = name;
-            IsEndState = isEndState;
+            IsFinalState = isEndState;
             paths = new Dictionary<char, State>();
         }
 
         public State(State state)
         {
             name_ = state.Name;
-            IsEndState = state.IsEndState;
+            IsFinalState = state.IsFinalState;
             paths = new Dictionary<char, State>(state.paths);
         }
 
@@ -98,7 +98,7 @@ namespace AutomatGUI
                 return false;
             }
 
-            if (IsEndState != compare.IsEndState)
+            if (IsFinalState != compare.IsFinalState)
             {
                 return false;
             }
