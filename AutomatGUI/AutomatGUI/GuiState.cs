@@ -88,7 +88,7 @@ namespace AutomatGUI
             g.DrawEllipse(pen_, xPos, yPos, size_, size_);
             if (IsFinalState)
             {
-                g.DrawEllipse(pen_, xPosInner, yPosInner, 
+                g.DrawEllipse(pen_, xPosInner, yPosInner,
                     (int)(size_ * innerSizeRatio),
                     (int)(size_ * innerSizeRatio));
             }
@@ -196,6 +196,56 @@ namespace AutomatGUI
                 g.DrawLine(pen_, tipPos.X, tipPos.Y,
                     arrowPart2.X, arrowPart2.Y);
             }
+        }
+
+        public void PaintInitState(Graphics g)
+        {
+            // Vector pointing down
+            Vector arrow = new Vector(0, -1);
+
+            // Arrow shaft vector
+            Vector shaftVec = new Vector(arrow);
+            shaftVec.Length = size_ * 1.5;
+
+            // Arrow shaft position
+            Vector shaftPos = new Vector(x_, y_);
+            shaftPos.AddVector(shaftVec);
+
+            // Arrow tip vector
+            Vector tipVec = new Vector(arrow);
+            tipVec.Length = size_ * 0.5;
+
+            // Arrow tip position
+            Vector tipPos = new Vector(x_, y_);
+            tipPos.AddVector(tipVec);
+
+            // Generate small arrow parts
+            const int angleDegrees = 135;
+
+            // Arrow part 1 vector
+            Vector arrowPart1Vec = new Vector(arrow);
+            arrowPart1Vec.Length = size_ / 2;
+            arrowPart1Vec.Rotate(180 - angleDegrees);
+
+            // Arrow part 1 position
+            Vector arrowPart1 = new Vector(tipPos);
+            arrowPart1.AddVector(arrowPart1Vec);
+
+            // Arrow part 2 vector
+            Vector arrowPart2Vec = new Vector(arrow);
+            arrowPart2Vec.Length = size_ / 2;
+            arrowPart2Vec.Rotate(-(180 - angleDegrees));
+
+            // Arrow part 2 position
+            Vector arrowPart2 = new Vector(tipPos);
+            arrowPart2.AddVector(arrowPart2Vec);
+
+            // Draw arrow
+            g.DrawLine(pen_, shaftPos.X, shaftPos.Y, tipPos.X, tipPos.Y);
+            g.DrawLine(pen_, tipPos.X, tipPos.Y,
+                arrowPart1.X, arrowPart1.Y);
+            g.DrawLine(pen_, tipPos.X, tipPos.Y,
+                arrowPart2.X, arrowPart2.Y);
         }
     }
 }

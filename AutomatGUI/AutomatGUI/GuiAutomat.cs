@@ -37,6 +37,11 @@ namespace AutomatGUI
                     ((GuiState)state).Paint(g);
                 }
             }
+
+            if (initState is GuiState)
+            {
+                ((GuiState)initState).PaintInitState(g);
+            }
         }
 
         public void InitGui()

@@ -28,12 +28,12 @@ namespace AutomatGUI
             
             automat.SetAlphabet("ab");
 
-            automat.AddState("1", false, true);
-            automat.AddState("2", false, false);
-            automat.AddState("3", false, false);
-            automat.AddState("4", false, false);
-            automat.AddState("5", false, false);
-            automat.AddState("6", true, false);
+            automat.AddState("1", 100, 150, false, true);
+            automat.AddState("2", 200, 100, false, false);
+            automat.AddState("3", 200, 200, false, false);
+            automat.AddState("4", 300, 100, false, false);
+            automat.AddState("5", 300, 200, false, false);
+            automat.AddState("6", 400, 150, true, false);
 
             automat.AddPath("1", "3", 'a');
             automat.AddPath("1", "2", 'b');
