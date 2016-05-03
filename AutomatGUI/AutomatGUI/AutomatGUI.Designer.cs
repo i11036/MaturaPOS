@@ -83,7 +83,7 @@
             this.newAutomatToolStripMenuItem.Name = "newAutomatToolStripMenuItem";
             this.newAutomatToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.N)));
-            this.newAutomatToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.newAutomatToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.newAutomatToolStripMenuItem.Text = "New";
             this.newAutomatToolStripMenuItem.Click += new System.EventHandler(this.newAutomatToolStripMenuItem_Click);
             // 
@@ -91,14 +91,15 @@
             // 
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
             this.updateToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.updateToolStripMenuItem.Text = "Update";
             this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
             // minimizeToolStripMenuItem
             // 
             this.minimizeToolStripMenuItem.Name = "minimizeToolStripMenuItem";
-            this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.minimizeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
+            this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.minimizeToolStripMenuItem.Text = "Minimize";
             this.minimizeToolStripMenuItem.Click += new System.EventHandler(this.minimizeToolStripMenuItem_Click);
             // 

@@ -25,7 +25,7 @@ namespace AutomatGUI
         private void InitTest()
         {
             automat.Reset();
-            
+
             automat.SetAlphabet("ab");
 
             automat.AddState("1", 100, 150, false, true);
@@ -90,7 +90,7 @@ namespace AutomatGUI
 
         private void AutomatGUI_Load(object sender, EventArgs e)
         {
-            
+            UpdatePanel();
         }
 
         private void newAutomatToolStripMenuItem_Click(object sender, EventArgs e)

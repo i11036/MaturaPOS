@@ -42,7 +42,7 @@ namespace AutomatGUI
 
         public GuiState(string name, int x, int y, bool isEndState,
             int size, Pen pen, Brush brush, Font font)
-            : base(name)
+            : base(name, isEndState)
         {
             x_ = x;
             y_ = y;
