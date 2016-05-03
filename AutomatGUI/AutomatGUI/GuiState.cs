@@ -106,50 +106,82 @@ namespace AutomatGUI
 
         private void PaintArrow(Graphics g, GuiState toState)
         {
-            // Vector from this state to toState
-            Vector arrow = new Vector(toState.x_ - x_, toState.y_ - y_);
+            if (!Equals(toState))
+            {
+                // Vector from this state to toState
+                Vector arrow = new Vector(toState.x_ - x_, toState.y_ - y_);
 
-            // Arrow shaft vector
-            Vector shaftVec = new Vector(arrow);
-            shaftVec.Length = size_ / 2;
+                // Arrow shaft vector
+                Vector shaftVec = new Vector(arrow);
+                shaftVec.Length = size_ / 2;
 
-            // Arrow shaft position
-            Vector shaftPos = new Vector(x_, y_);
-            shaftPos.AddVector(shaftVec);
-            
-            // Arrow tip vector
-            Vector tipVec = new Vector(arrow);
-            tipVec.Length = arrow.Length - toState.size_ / 2;
-            
-            // Arrow tip position
-            Vector tipPos = new Vector(x_, y_);
-            tipPos.AddVector(tipVec);
+                // Arrow shaft position
+                Vector shaftPos = new Vector(x_, y_);
+                shaftPos.AddVector(shaftVec);
 
-            // Generate small arrow parts
-            const int angleDegrees = 45;
+                // Arrow tip vector
+                Vector tipVec = new Vector(arrow);
+                tipVec.Length = arrow.Length - toState.size_ / 2;
 
-            // Arrow part 1 vector
-            Vector arrowPart1Vec = new Vector(arrow);
-            arrowPart1Vec.Length = size_ / 2;
-            arrowPart1Vec.Rotate(180 - angleDegrees);
+                // Arrow tip position
+                Vector tipPos = new Vector(x_, y_);
+                tipPos.AddVector(tipVec);
 
-            // Arrow part 1 position
-            Vector arrowPart1 = new Vector(tipPos);
-            arrowPart1.AddVector(arrowPart1Vec);
+                // Generate small arrow parts
+                const int angleDegrees = 45;
 
-            // Arrow part 2 vector
-            Vector arrowPart2Vec = new Vector(arrow);
-            arrowPart2Vec.Length = size_ / 2;
-            arrowPart2Vec.Rotate(-(180 - angleDegrees));
+                // Arrow part 1 vector
+                Vector arrowPart1Vec = new Vector(arrow);
+                arrowPart1Vec.Length = size_ / 2;
+                arrowPart1Vec.Rotate(180 - angleDegrees);
 
-            // Arrow part 2 position
-            Vector arrowPart2 = new Vector(tipPos);
-            arrowPart2.AddVector(arrowPart2Vec);
+                // Arrow part 1 position
+                Vector arrowPart1 = new Vector(tipPos);
+                arrowPart1.AddVector(arrowPart1Vec);
 
-            // Draw arrow
-            g.DrawLine(pen_, shaftPos.X, shaftPos.Y, tipPos.X, tipPos.Y);
-            g.DrawLine(pen_, tipPos.X, tipPos.Y, arrowPart1.X, arrowPart1.Y);
-            g.DrawLine(pen_, tipPos.X, tipPos.Y, arrowPart2.X, arrowPart2.Y);
+                // Arrow part 2 vector
+                Vector arrowPart2Vec = new Vector(arrow);
+                arrowPart2Vec.Length = size_ / 2;
+                arrowPart2Vec.Rotate(-(180 - angleDegrees));
+
+                // Arrow part 2 position
+                Vector arrowPart2 = new Vector(tipPos);
+                arrowPart2.AddVector(arrowPart2Vec);
+
+                // Draw arrow
+                g.DrawLine(pen_, shaftPos.X, shaftPos.Y, tipPos.X, tipPos.Y);
+                g.DrawLine(pen_, tipPos.X, tipPos.Y, arrowPart1.X, arrowPart1.Y);
+                g.DrawLine(pen_, tipPos.X, tipPos.Y, arrowPart2.X, arrowPart2.Y);
+            }
+            else
+            {
+                // Arrow tip position
+                Vector shaftPos = new Vector(x_ + size_ / 2, y_);
+
+                // Arrow tip position
+                Vector tipPos = new Vector(x_, y_ + size_ / 2);
+
+                // Arrow part 1 vector
+                Vector arrowPart1Vec = new Vector(size_, size_);
+                arrowPart1Vec.Length = size_ / 2;
+
+                // Arrow part 1 position
+                Vector arrowPart1 = new Vector(tipPos);
+                arrowPart1.AddVector(arrowPart1Vec);
+
+                // Arrow part 2 vector
+                Vector arrowPart2Vec = new Vector(-size_, size_);
+                arrowPart2Vec.Length = size_ / 2;
+
+                // Arrow part 2 position
+                Vector arrowPart2 = new Vector(tipPos);
+                arrowPart2.AddVector(arrowPart2Vec);
+
+                // Draw Arrow
+                g.DrawArc(pen_, x_, y_, size_, size_, -90, 270);
+                g.DrawLine(pen_, tipPos.X, tipPos.Y, arrowPart1.X, arrowPart1.Y);
+                g.DrawLine(pen_, tipPos.X, tipPos.Y, arrowPart2.X, arrowPart2.Y);
+            }
         }
     }
 }
