@@ -1,0 +1,12 @@
+c:\users\paul\documents\visual studio 2015\Projects\AStarAlgorithm\AStarAlgorithm\bin\Debug\AStarAlgorithm.exe.config
+c:\users\paul\documents\visual studio 2015\Projects\AStarAlgorithm\AStarAlgorithm\bin\Debug\AStarAlgorithm.exe
+c:\users\paul\documents\visual studio 2015\Projects\AStarAlgorithm\AStarAlgorithm\bin\Debug\AStarAlgorithm.pdb
+c:\users\paul\documents\visual studio 2015\Projects\AStarAlgorithm\AStarAlgorithm\obj\Debug\AStarAlgorithm.csprojResolveAssemblyReference.cache
+c:\users\paul\documents\visual studio 2015\Projects\AStarAlgorithm\AStarAlgorithm\obj\Debug\AStarAlgorithm.FormMap.resources
+c:\users\paul\documents\visual studio 2015\Projects\AStarAlgorithm\AStarAlgorithm\obj\Debug\AStarAlgorithm.Properties.Resources.resources
+c:\users\paul\documents\visual studio 2015\Projects\AStarAlgorithm\AStarAlgorithm\obj\Debug\AStarAlgorithm.csproj.GenerateResource.Cache
+c:\users\paul\documents\visual studio 2015\Projects\AStarAlgorithm\AStarAlgorithm\obj\Debug\AStarAlgorithm.exe
+c:\users\paul\documents\visual studio 2015\Projects\AStarAlgorithm\AStarAlgorithm\obj\Debug\AStarAlgorithm.pdb
+C:\Users\Paul\Documents\Visual Studio 2015\Projects\AStarAlgorithm\AStarAlgorithm\obj\Debug\AStarAlgorithm.NewNodeDialog.resources
+C:\Users\Paul\Documents\Visual Studio 2015\Projects\AStarAlgorithm\AStarAlgorithm\obj\Debug\AStarAlgorithm.NewPathDialog.resources
+C:\Users\Paul\Documents\Visual Studio 2015\Projects\AStarAlgorithm\AStarAlgorithm\obj\Debug\AStarAlgorithm.Dialogs.FindPathDialog.resources
