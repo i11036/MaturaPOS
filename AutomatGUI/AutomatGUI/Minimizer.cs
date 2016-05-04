@@ -98,7 +98,14 @@ namespace AutomatGUI
                         State state1Next = autStates[state1].GetNext(token);
                         State state2Next = autStates[state2].GetNext(token);
 
-                        if (!Get(state1Next.Name, state2Next.Name))
+                        if ((state1Next == null) != (state2Next == null))
+                        {
+                            Set(state1, state2, false);
+                            return true;
+                        }
+
+                        if (state1Next != null && state2Next != null
+                            && !Get(state1Next.Name, state2Next.Name))
                         {
                             Set(state1, state2, false);
                             return true;
