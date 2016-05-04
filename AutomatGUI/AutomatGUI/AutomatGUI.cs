@@ -188,5 +188,18 @@ namespace AutomatGUI
             automat.Minimize();
             UpdateAutomatGUI();
         }
+
+        private void checkInputToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CheckInputDialog diag = new CheckInputDialog();
+
+            if (diag.ShowDialog() == DialogResult.OK)
+            {
+                string result = automat.CheckInput(diag.Input) ?
+                    diag.Input + " is valid" : diag.Input + " is invalid";
+
+                MessageBox.Show(result);
+            }
+        }
     }
 }

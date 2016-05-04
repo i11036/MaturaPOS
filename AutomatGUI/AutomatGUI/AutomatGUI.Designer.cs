@@ -39,6 +39,7 @@
             this.newPathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.automatStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.checkInputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -73,7 +74,8 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newAutomatToolStripMenuItem,
             this.updateToolStripMenuItem,
-            this.minimizeToolStripMenuItem});
+            this.minimizeToolStripMenuItem,
+            this.checkInputToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -83,7 +85,7 @@
             this.newAutomatToolStripMenuItem.Name = "newAutomatToolStripMenuItem";
             this.newAutomatToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.N)));
-            this.newAutomatToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.newAutomatToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.newAutomatToolStripMenuItem.Text = "New";
             this.newAutomatToolStripMenuItem.Click += new System.EventHandler(this.newAutomatToolStripMenuItem_Click);
             // 
@@ -91,7 +93,7 @@
             // 
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
             this.updateToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.updateToolStripMenuItem.Text = "Update";
             this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
@@ -99,7 +101,7 @@
             // 
             this.minimizeToolStripMenuItem.Name = "minimizeToolStripMenuItem";
             this.minimizeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
-            this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.minimizeToolStripMenuItem.Text = "Minimize";
             this.minimizeToolStripMenuItem.Click += new System.EventHandler(this.minimizeToolStripMenuItem_Click);
             // 
@@ -144,6 +146,15 @@
             this.automatStatusLabel.Name = "automatStatusLabel";
             this.automatStatusLabel.Size = new System.Drawing.Size(0, 17);
             // 
+            // checkInputToolStripMenuItem
+            // 
+            this.checkInputToolStripMenuItem.Name = "checkInputToolStripMenuItem";
+            this.checkInputToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.C)));
+            this.checkInputToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.checkInputToolStripMenuItem.Text = "Check Input";
+            this.checkInputToolStripMenuItem.Click += new System.EventHandler(this.checkInputToolStripMenuItem_Click);
+            // 
             // AutomatGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -178,6 +189,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel automatStatusLabel;
         private System.Windows.Forms.ToolStripMenuItem minimizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checkInputToolStripMenuItem;
     }
 }
 

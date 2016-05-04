@@ -53,7 +53,7 @@ namespace AutomatGUI
 
             while (state != null && index < input.Length)
             {
-                char token = input.Substring(index, index + 1).ToCharArray()[0];
+                char token = input.Substring(index, 1).ToCharArray()[0];
                 state = state.GetNext(token);
 
                 index++;
