@@ -101,58 +101,60 @@ namespace AutomatGUI
 
         public void ImportStates()
         {
-            OleDbConnection acc = new OleDbConnection();
-            acc.ConnectionString = connectionString;
-
-            DataSet ds = new DataSet();
-            OleDbCommand cmd = new OleDbCommand("select * from State;", acc);
-            OleDbDataAdapter adpt = new OleDbDataAdapter(cmd);
-            acc.Open();
-            adpt.Fill(ds);
-
-            DataTableCollection dta = ds.Tables;
-            foreach (DataTable dt in dta)
+            try
             {
-                foreach (DataRow dr in dt.Rows)
-                {
-                    string stateName = dr.Field<string>(
-                        dt.Columns[dt.Columns.IndexOf("StateID")]);
-                    bool isStart = dr.Field<bool>(
-                        dt.Columns[dt.Columns.IndexOf("IsStart")]);
-                    bool isEnd = dr.Field<bool>(
-                        dt.Columns[dt.Columns.IndexOf("IsEnd")]);
+                OleDbConnection conn = new OleDbConnection(connectionString);
+                OleDbCommand cmd = new OleDbCommand(
+                    "select * from State;", conn);
 
-                    AddState(stateName, isEnd, isStart);
+                conn.Open();
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string stateName = (string)reader["StateID"];
+                        bool isStart = (bool)reader["IsStart"];
+                        bool isEnd = (bool)reader["IsEnd"];
+                        
+                        AddState(stateName, isEnd, isStart);
+                    }
                 }
+            }
+            catch
+            {
+                Console.WriteLine("Error: Database connection failed");
             }
         }
 
         public void ImportPaths()
         {
-            OleDbConnection acc = new OleDbConnection();
-            acc.ConnectionString = connectionString;
-
-            DataSet ds = new DataSet();
-            OleDbCommand cmd = new OleDbCommand("select * from Path;", acc);
-            OleDbDataAdapter adpt = new OleDbDataAdapter(cmd);
-            acc.Open();
-            adpt.Fill(ds);
-
-            DataTableCollection dta = ds.Tables;
-            foreach (DataTable dt in dta)
+            try
             {
-                foreach (DataRow dr in dt.Rows)
-                {
-                    string fromState = dr.Field<string>(
-                        dt.Columns[dt.Columns.IndexOf("FromState")]);
-                    string toState = dr.Field<string>(
-                        dt.Columns[dt.Columns.IndexOf("ToState")]);
-                    string token = dr.Field<string>(
-                        dt.Columns[dt.Columns.IndexOf("Token")]);
+                OleDbConnection conn = new OleDbConnection(connectionString);
+                OleDbCommand cmd = new OleDbCommand(
+                    "select * from Path;", conn);
 
-                    AddPath(fromState, toState, token.ToCharArray()[0]);
-                    AddToken(token.ToCharArray()[0]);
+                conn.Open();
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string fromState = (string)reader["FromState"];
+                        string toState = (string)reader["ToState"];
+                        string token = (string)reader["Token"];
+
+                        AddPath(fromState, toState, token.ToCharArray()[0]);
+                        AddToken(token.ToCharArray()[0]);
+                    }
                 }
+            }
+            catch
+            {
+                Console.WriteLine("Error: Database connection failed");
             }
         }
 
