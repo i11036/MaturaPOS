@@ -117,7 +117,7 @@ namespace AutomatGUI
                         string stateName = (string)reader["StateID"];
                         bool isStart = (bool)reader["IsStart"];
                         bool isEnd = (bool)reader["IsEnd"];
-                        
+
                         AddState(stateName, isEnd, isStart);
                     }
                 }
@@ -184,12 +184,19 @@ namespace AutomatGUI
                         newState = new State(state);
                         newStates[state.Name] = newState;
                     }
-                    else if (equiv.IsFirst(state.Name))
+                    else
                     {
                         string equivName = equivs.GetEquivName(state.Name);
-                        newState = new State(equivName, state.IsFinalState);
 
-                        newStates[newState.Name] = newState;
+                        if (equiv.IsFirst(state.Name))
+                        {
+                            newState = new State(equivName, state.IsFinalState);
+                            newStates[newState.Name] = newState;
+                        }
+                        else
+                        {
+                            newState = newStates[equivName];
+                        }
                     }
 
                     if (state.Equals(initState))
@@ -202,7 +209,7 @@ namespace AutomatGUI
 
                 states = newStates;
                 initState = newInitState;
-                
+
                 foreach (State state in states.Values)
                 {
                     state.UpdatePaths(states, equivs);
